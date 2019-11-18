@@ -1,6 +1,8 @@
-Source Code 
+
+'''
 1.	Using Point to Point Correspondence
 The source code below was used to remove the projective and the affine distortion the from the first image using point to point correspondence. The code used to remove the distortions from the other input images are very similar and hence it has not been included.
+'''
 import cv2
 import numpy as np
 import math
@@ -68,8 +70,10 @@ new_rc = np.divide(new_rc,new_rc[2])
 if (new_rc[0]>0) and (new_rc[0]<img_1.shape[0])and (new_rc[1]>0) and (new_rc[1]<img_1.shape[1]):
 new[row][col] = img_1[math.floor(new_rc[0]),math.floor(new_rc[1])]
 cv2.imwrite('t1_i3.jpg',new)
+'''
 2.	Two Step Method
 The source code below was used to remove the projective and the affine distortion the from the first image using the two-step method. The code used to remove the distortions from the other input images are very similar and hence it has not been included.
+'''
 import cv2
 import numpy as np
 import math
@@ -105,11 +109,7 @@ H_p[2][0] = vl[0]
 H_p[2][1] = vl[1]
 H_p[2][2] = vl[2]
 
-#The Bounding points for image 1 without projective distortion 
-# P = np.array([0,0,1])
-# Q = np.array([0,2592,1])
-# R = np.array([1944,0,1])
-# S = np.array([1944,2592,1])
+
 
 p_h = np.matmul(H_p,P)
 q_h = np.matmul(H_p,Q)
@@ -228,8 +228,10 @@ if (new_rc[0]>0) and (new_rc[0]<img_1.shape[0])and (new_rc[1]>0) and (new_rc[1]<
 new[row][col] = img_1[math.floor(new_rc[0]),math.floor(new_rc[1])]
 cv2.imwrite('t2_img1_com.jpg',new)
 
+'''
 3.	One Step Method
 The source code below was used to remove the projective and the affine distortion the from the first image using the one-step method. The code used to remove the distortions from the other input images are very similar and hence it has not been included.
+'''
 import cv2
 import numpy as np
 import math
